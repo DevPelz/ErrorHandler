@@ -1,66 +1,61 @@
-## Foundry
+# DegenToken Smart Contract
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+## Overview
 
-Foundry consists of:
+`DegenToken` is an ERC-20 token named "Degen" with the symbol "DGN" deployed on the Avalanche Fuji Testnet. This token allows the owner to mint new tokens, create items associated with unique IDs, burn tokens, and redeem items. The contract is built on the Ethereum blockchain using OpenZeppelin's ERC-20 implementation.
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## Contract Details
 
-## Documentation
+### Token Information
 
-https://book.getfoundry.sh/
+- **Name:** Degen
+- **Symbol:** DGN
 
-## Usage
+### Functions
 
-### Build
+1. **Constructor:**
 
-```shell
-$ forge build
-```
+   - Initializes the ERC-20 token with the specified name and symbol.
+   - Sets the contract deployer as the owner.
 
-### Test
+2. **mint(address to, uint256 amount):**
 
-```shell
-$ forge test
-```
+   - Mints new tokens and assigns them to the specified address.
+   - Only the contract owner can call this function.
 
-### Format
+3. **createItems(string memory \_name, uint256 amount):**
 
-```shell
-$ forge fmt
-```
+   - Creates items associated with unique IDs.
+   - Only the contract owner can call this function.
 
-### Gas Snapshots
+4. **burn(uint amount):**
 
-```shell
-$ forge snapshot
-```
+   - Burns a specified amount of tokens from the caller's balance.
+   - Ensures that the caller has a sufficient balance to burn.
 
-### Anvil
+5. **redeem(uint8 itemID\_):**
 
-```shell
-$ anvil
-```
+   - Redeems items associated with a given item ID.
+   - Transfers the ownership of the item to the caller.
 
-### Deploy
+6. **viewItemOwner(uint8 itemID\_):**
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+   - Returns the current owner of the item associated with the given item ID.
 
-### Cast
+7. **showItem(uint id\_):**
+   - Returns detailed information about the item associated with the given ID.
 
-```shell
-$ cast <subcommand>
-```
+## Deployment
 
-### Help
+The contract is deployed on the Avalanche Fuji Testnet at the following address: [DegenToken Contract](https://testnet.snowtrace.io/address/0xf6db22642bf6dac8c540260a2a11c4c7e69ca653).
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+## Interacting with the Contract
+
+- The contract owner can mint new tokens and create items using the respective functions.
+- Any address with a balance can burn their tokens.
+- Items can be redeemed by calling the `redeem` function, and their ownership can be viewed using the `viewItemOwner` function.
+- Detailed information about items can be obtained using the `showItem` function.
+
+## Disclaimer
+
+This contract is provided under the MIT License. Use it at your own risk. Be sure to review and test the contract thoroughly before deploying it in a production environment.

@@ -1,47 +1,48 @@
-# DisplayData Smart Contract
+# MyMetaCrafterToken
 
-This Ethereum smart contract, named `DisplayData`, is a simple example that allows an owner to change a numerical value and view it. The smart contract is written in Solidity.
+## Overview
 
-## Functions
+`MyMetaCrafterToken` is an ERC-20 token named "MyMetaToken" with the symbol "MMT" built on the Ethereum blockchain. This token is designed to be easily minted and burned by the contract owner.
 
-1. **changeNumber(uint \_value):**
+## Smart Contract Details
 
-   - Changes the numerical value stored in the contract.
-   - Only the owner can call this function.
+### Token Information
 
-2. **viewNumber():**
-   - Returns the current numerical value stored in the contract.
+- **Name:** MyMetaToken
+- **Symbol:** MMT
 
-## Deployed Contract
+### Functions
 
-The smart contract is deployed on the Ethereum blockchain.
+1. **Constructor:**
 
-# Frontend with Next.js
+   - Initializes the ERC-20 token with the specified name and symbol.
+   - Sets the contract deployer as the owner.
 
-The project includes a frontend built with Next.js to interact with the `DisplayData` smart contract.
+2. **mint(address \_to, uint \_amount):**
 
-## Getting Started
+   - Mints new tokens and assigns them to the specified address.
+   - Only the contract owner can call this function.
 
-To run the frontend locally, follow these steps:
+3. **burn(uint \_amount):**
+   - Burns a specified amount of tokens from the caller's balance.
+   - Ensures that the caller has a sufficient balance to burn.
 
-1. **Navigate to the `frontend` directory:**
+## Interacting with the Contract
 
-```bash
-   cd frontend
-```
+- The contract owner can mint new tokens using the `mint` function.
+- Any address can burn their tokens using the `burn` function, provided they have a sufficient balance.
 
-### Install Dependencies:
+## Usage
 
-```bash
-npm install
-```
+To use this contract, consider the following steps:
 
-### Start the Development Server:
+1. **Deploy the Contract:**
 
-```bash
-yarn dev
-```
+   - Deploy the `MyMetaCrafterToken` contract on the Ethereum blockchain.
 
-### Access the Application:
+2. **Mint Tokens:**
 
-- Open your web browser and visit http://localhost:3000.
+   - The contract owner can mint new tokens using the `mint` function.
+
+3. **Burn Tokens:**
+   - Any address with a balance can burn their tokens using the `burn` function.

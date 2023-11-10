@@ -1,48 +1,66 @@
-# MyMetaCrafterToken
+## Foundry
 
-## Overview
+**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
 
-`MyMetaCrafterToken` is an ERC-20 token named "MyMetaToken" with the symbol "MMT" built on the Ethereum blockchain. This token is designed to be easily minted and burned by the contract owner.
+Foundry consists of:
 
-## Smart Contract Details
+-   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
+-   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
+-   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
+-   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
 
-### Token Information
+## Documentation
 
-- **Name:** MyMetaToken
-- **Symbol:** MMT
-
-### Functions
-
-1. **Constructor:**
-
-   - Initializes the ERC-20 token with the specified name and symbol.
-   - Sets the contract deployer as the owner.
-
-2. **mint(address \_to, uint \_amount):**
-
-   - Mints new tokens and assigns them to the specified address.
-   - Only the contract owner can call this function.
-
-3. **burn(uint \_amount):**
-   - Burns a specified amount of tokens from the caller's balance.
-   - Ensures that the caller has a sufficient balance to burn.
-
-## Interacting with the Contract
-
-- The contract owner can mint new tokens using the `mint` function.
-- Any address can burn their tokens using the `burn` function, provided they have a sufficient balance.
+https://book.getfoundry.sh/
 
 ## Usage
 
-To use this contract, consider the following steps:
+### Build
 
-1. **Deploy the Contract:**
+```shell
+$ forge build
+```
 
-   - Deploy the `MyMetaCrafterToken` contract on the Ethereum blockchain.
+### Test
 
-2. **Mint Tokens:**
+```shell
+$ forge test
+```
 
-   - The contract owner can mint new tokens using the `mint` function.
+### Format
 
-3. **Burn Tokens:**
-   - Any address with a balance can burn their tokens using the `burn` function.
+```shell
+$ forge fmt
+```
+
+### Gas Snapshots
+
+```shell
+$ forge snapshot
+```
+
+### Anvil
+
+```shell
+$ anvil
+```
+
+### Deploy
+
+```shell
+$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+```
+
+### Cast
+
+```shell
+$ cast <subcommand>
+```
+
+### Help
+
+```shell
+$ forge --help
+$ anvil --help
+$ cast --help
+```
